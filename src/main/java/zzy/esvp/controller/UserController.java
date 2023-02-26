@@ -1,38 +1,34 @@
 package zzy.esvp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import zzy.esvp.eneity.User;
+import zzy.esvp.service.UserService;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/user")
+//@Controller
+//@RequestBody
+@RequestMapping("/users")
+@RestController
 public class UserController {
+    @Autowired
+    private UserService userService;
 
-//    传递json 数组的方式demo
-    @RequestMapping("/save")
-    @ResponseBody
-    public String save(@RequestBody List<String> list) {
-        System.out.println(list);
-        return "{'info':'springmvc'}";
-    }
-
-    @RequestMapping("/register")
-    @ResponseBody
-    public String register(User user){
-
+    //    注册
+    @GetMapping
+    public String register(User user) {
         System.out.println("User" + user.getEmail() + ", password: " + user.getPassword());
-        return "{'info':'springmvc'}";
+        return "register success";
     }
 
-    @RequestMapping("/login")
-    @ResponseBody
-    public String login(@RequestParam("email") String email,@RequestParam("password") String password){
-        System.out.println("email: " + email + ", password: " + password);
-        return "{'info':'springmvc'}";
+    //    登录
+    @PostMapping
+    public String login(@RequestBody User user) {
+        System.out.println("email: " + user.getEmail() + ", password: " + user.getPassword());
+        List<User> users = userService.findAll();
+        System.out.println(users);
+        return "login success";
     }
 }
