@@ -1,41 +1,33 @@
 package zzy.esvp.eneity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class User {
     private Integer id;
-    private String username;
-    private String email;
-    private String password;
-    private String phone;
-    private String idcard;
-    private String realname;
-    private LocalDate birthday;
-    private boolean sex;
-    private String head;
-    private Integer status;
-    private LocalDateTime regtime;
-    private LocalDateTime lasttime;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", idcard='" + idcard + '\'' +
-                ", realname='" + realname + '\'' +
-                ", birthday=" + birthday +
-                ", sex=" + sex +
-                ", head='" + head + '\'' +
-                ", status=" + status +
-                ", regtime=" + regtime +
-                ", lasttime=" + lasttime +
-                '}';
-    }
+    private String username;
+
+    private String password;
+
+    private String email;
+
+    private String phone;
+
+    private String idcard;
+
+    private String realname;
+
+    private Date birthday;
+
+    private Boolean sex;
+
+    private String head;
+
+    private Integer status;
+
+    private Date regtime;
+
+    private Date lasttime;
 
     public Integer getId() {
         return id;
@@ -51,6 +43,22 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
@@ -77,19 +85,19 @@ public class User {
         this.realname = realname;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    public boolean isSex() {
+    public Boolean getSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(Boolean sex) {
         this.sex = sex;
     }
 
@@ -109,35 +117,42 @@ public class User {
         this.status = status;
     }
 
-    public LocalDateTime getRegtime() {
+    public Date getRegtime() {
         return regtime;
     }
 
-    public void setRegtime(LocalDateTime regtime) {
+    public void setRegtime(Date regtime) {
         this.regtime = regtime;
     }
 
-    public LocalDateTime getLasttime() {
+    public Date getLasttime() {
         return lasttime;
     }
 
-    public void setLasttime(LocalDateTime lasttime) {
+    public void setLasttime(Date lasttime) {
         this.lasttime = lasttime;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", username=").append(username);
+        sb.append(", password=").append(password);
+        sb.append(", email=").append(email);
+        sb.append(", phone=").append(phone);
+        sb.append(", idcard=").append(idcard);
+        sb.append(", realname=").append(realname);
+        sb.append(", birthday=").append(birthday);
+        sb.append(", sex=").append(sex);
+        sb.append(", head=").append(head);
+        sb.append(", status=").append(status);
+        sb.append(", regtime=").append(regtime);
+        sb.append(", lasttime=").append(lasttime);
+        sb.append("]");
+        return sb.toString();
     }
 }
